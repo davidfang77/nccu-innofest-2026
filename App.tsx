@@ -551,7 +551,7 @@ export default function App() {
           </div>
           
           <div className="flex-1 relative overflow-auto bg-[#f8fafc] p-2 sm:p-3 lg:p-5 custom-scrollbar flex justify-start xl:justify-center">
-            <div className="relative min-w-[760px] sm:min-w-[860px] lg:min-w-[950px] max-w-[1300px] w-full bg-white rounded shadow-sm border border-gray-300 p-4 sm:p-5 lg:p-6 pb-28 flex flex-col">
+            <div className="relative min-w-[760px] sm:min-w-[860px] lg:min-w-[950px] max-w-[1180px] w-full bg-white rounded shadow-sm border border-gray-300 p-4 sm:p-5 lg:p-6 pb-24 flex flex-col">
               
               {/* --- 頂部環境 --- */}
               <div className="w-full flex justify-between items-start mb-10 lg:mb-12 relative px-2 sm:px-4">
@@ -574,10 +574,10 @@ export default function App() {
 
               {/* --- 核心網格區 --- */}
               <div 
-                className="grid w-full flex-1 gap-1.5 lg:gap-2 relative z-10 my-4 px-2 sm:px-4"
+                className="grid w-full gap-1.5 lg:gap-2 relative z-10 my-3 lg:my-4 px-2 sm:px-4"
                 style={{ 
                   gridTemplateColumns: 'repeat(12, minmax(0, 1fr))',
-                  gridTemplateRows: 'repeat(11, minmax(0, 1fr))'
+                  gridTemplateRows: 'repeat(11, clamp(34px, 3.1vw, 46px))'
                 }}
               >
                 {ROWS.map(row => (
@@ -594,7 +594,7 @@ export default function App() {
                         return (
                           <div
                             key={booth.id}
-                            className="relative flex flex-col items-center justify-center rounded border-2 border-dashed border-gray-300 bg-gray-50/50 min-h-[38px] opacity-70"
+                            className="relative flex flex-col items-center justify-center rounded border-2 border-dashed border-gray-300 bg-gray-50/50 h-full min-h-0 opacity-70"
                             title={`預留空間
 Reserved ${booth.id}`}
                           >
@@ -616,7 +616,7 @@ Reserved</span>
                           onClick={() => (isVisible && !isEmpty) && handleItemClick(project.id)}
                           className={`
                             relative flex flex-col items-center justify-center rounded transition-all duration-300 border-b-4
-                            min-h-[38px]
+                            h-full min-h-0
                             ${booth.hasPower ? 'bg-amber-100/90 border-amber-300' : 'bg-sky-500 border-sky-700'}
                             ${isEmpty ? 'opacity-20' : 'cursor-pointer shadow hover:-translate-y-1 hover:shadow-lg'}
                             ${!isVisible && !isEmpty ? 'opacity-20 grayscale' : ''}
